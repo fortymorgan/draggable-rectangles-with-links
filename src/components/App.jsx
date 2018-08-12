@@ -27,7 +27,7 @@ export default class App extends Component {
   checkSpace = (x, y) => {
     const { rectangles } = this.props;
 
-    return rectangles.every(({ position }) => Math.abs(x - position.x) >= 100 || Math.abs(y - position.y) >= 50);
+    return rectangles.every(({ position }) => Math.abs(x - position.x) >= 200 || Math.abs(y - position.y) >= 100);
   }
 
   render() {
