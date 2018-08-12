@@ -24,6 +24,7 @@ export default class Point extends Component {
       top: coords[position].top,
       display: linking.state || hovered ? 'block' : 'none',
       cursor: 'pointer',
+      zIndex: 2,
     };
 
     return (
