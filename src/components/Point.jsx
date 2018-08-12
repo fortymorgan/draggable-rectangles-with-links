@@ -12,22 +12,24 @@ export default class Point extends Component {
   }
 
   render() {
-    const { position, hovered, linking: { state } } = this.props;
+    const { position, hovered, linking } = this.props;
+
+    const style = {
+      position: 'absolute',
+      width: '10px',
+      height: '10px',
+      background: '#808080',
+      borderRadius: '50%',
+      left: coords[position].left,
+      top: coords[position].top,
+      display: linking.state || hovered ? 'block' : 'none',
+      cursor: 'pointer',
+    };
 
     return (
       <div
         onClick={this.onClick}
-        style={{
-          position: 'absolute',
-          width: '10px',
-          height: '10px',
-          background: '#808080',
-          borderRadius: '50%',
-          left: coords[position].left,
-          top: coords[position].top,
-          display: state || hovered ? 'block' : 'none',
-          cursor: 'pointer',
-        }}
+        style={style}
       ></div>
     );
   }
