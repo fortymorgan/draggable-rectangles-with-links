@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Point from '../containers/Point';
+import { params } from '../rectParams';
 
 export default class Rectangle extends Component {
   state = {
@@ -50,7 +51,7 @@ export default class Rectangle extends Component {
   render() {
     const { position: { x, y }, color } = this.props.rect;
     const { dragging, hovered } = this.state;
-    const [width, height] = [100, 50];
+    const { width, height } = params;
   
     const style = {
       width,

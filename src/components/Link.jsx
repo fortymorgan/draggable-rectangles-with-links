@@ -1,28 +1,10 @@
 import React, { Component } from 'react';
 import { Line } from 'react-lineto';
+import { deltas } from '../rectParams';
 
 export default class Link extends Component {
   render() {
     const { a, b, rectangles } = this.props;
-
-    const deltas = {
-      top: {
-        x: 0,
-        y: -25,
-      },
-      right: {
-        x: 50,
-        y: 0,
-      },
-      left: {
-        x: -50,
-        y: 0,
-      },
-      bottom: {
-        x: 0,
-        y: 25,
-      },
-    };
 
     const rectFrom = rectangles.find(rect => rect.id === a.id);
     const rectTo = rectangles.find(rect => rect.id === b.id);

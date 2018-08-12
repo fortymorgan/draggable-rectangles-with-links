@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Rectangle from './Rectangle';
 import Link from './Link';
+import LinkingLine from './LinkingLine';
 
 export default class App extends Component {
   onAddRectangle = ({ clientX, clientY }) => {
@@ -24,7 +25,7 @@ export default class App extends Component {
   }
 
   render() {
-    const { rectangles, moveRectangle, links } = this.props;
+    const { rectangles, moveRectangle, links, linking } = this.props;
 
     return (
       <div className="app">
@@ -37,11 +38,13 @@ export default class App extends Component {
             rectangles={rectangles}
           />
         ))}
+        {linking.state ? <LinkingLine start={linking.start} rects={rectangles} mouse={this.state.mouse} /> : null}
       </div>
     )
   }
 
   componentDidMount() {
     document.addEventListener('dblclick', this.onAddRectangle);
+    document.addEventListener('mousemove', ({ clientX, clientY }) => this.setState({ mouse: { x: clientX, y: clientY } }));
   }
 }

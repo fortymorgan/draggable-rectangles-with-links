@@ -11,35 +11,34 @@ export default class Point extends Component {
   }
 
   render() {
-    const { position, hovered, rect: { id }, linking: { state } } = this.props;
+    const { position, hovered, linking: { state } } = this.props;
 
     const coords = {
       top: {
-        left: '47px',
-        top: '-3px',
+        left: '45px',
+        top: '-5px',
       },
       right: {
-        left: '97px',
-        top: '22px',
+        left: '95px',
+        top: '20px',
       },
       left: {
-        left: '-3px',
-        top: '22px',
+        left: '-5px',
+        top: '20px',
       },
       bottom: {
-        left: '47px',
-        top: '47px',
+        left: '45px',
+        top: '45px',
       },
     }
 
     return (
       <div
-        onMouseDown={e => e.stopPropagation()}
         onClick={this.onClick}
         style={{
           position: 'absolute',
-          width: '6px',
-          height: '6px',
+          width: '10px',
+          height: '10px',
           background: '#808080',
           borderRadius: '50%',
           left: coords[position].left,
