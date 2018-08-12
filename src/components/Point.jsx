@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { coords } from '../rectParams';
 
 export default class Point extends Component {
   onClick = () => {
@@ -12,25 +13,6 @@ export default class Point extends Component {
 
   render() {
     const { position, hovered, linking: { state } } = this.props;
-
-    const coords = {
-      top: {
-        left: '45px',
-        top: '-5px',
-      },
-      right: {
-        left: '95px',
-        top: '20px',
-      },
-      left: {
-        left: '-5px',
-        top: '20px',
-      },
-      bottom: {
-        left: '45px',
-        top: '45px',
-      },
-    }
 
     return (
       <div

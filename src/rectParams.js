@@ -21,3 +21,22 @@ export const deltas = {
     y: (params.height / 2) - 1,
   },
 };
+
+export const coords = {
+  top: {
+    left: '45px',
+    top: '-5px',
+  },
+  right: {
+    left: '95px',
+    top: '20px',
+  },
+  left: {
+    left: '-5px',
+    top: '20px',
+  },
+  bottom: {
+    left: '45px',
+    top: '45px',
+  },
+};
