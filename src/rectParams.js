@@ -6,18 +6,18 @@ export const params = {
 export const deltas = {
   top: {
     x: 0,
-    y: -(params.height / 2),
+    y: -((params.height / 2) - 1),
   },
   right: {
-    x: params.width / 2,
+    x: (params.width / 2) - 1,
     y: 0,
   },
   left: {
-    x: -(params.width / 2),
+    x: -((params.width / 2) - 1),
     y: 0,
   },
   bottom: {
     x: 0,
-    y: params.height / 2,
+    y: (params.height / 2) - 1,
   },
 };
