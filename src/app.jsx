@@ -9,10 +9,9 @@ export default () => {
   const ext = window.__REDUX_DEVTOOLS_EXTENSION__;
   const devTools = ext && ext();
 
-  const store = createStore(
-    reducers,
-    devTools,
-  );
+  const args = ext ? [reducers, devTools] : [reducers];
+
+  const store = createStore(...args);
 
   ReactDOM.render(
     <Provider store={store}>
