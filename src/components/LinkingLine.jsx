@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Line } from 'react-lineto';
+import Line from './Line';
 import { deltas } from '../rectParams';
 
 export default class LinkingLine extends Component {
@@ -18,10 +18,8 @@ export default class LinkingLine extends Component {
         y0={from.y}
         x1={to.x}
         y1={to.y}
-        borderColor="#808080"
-        borderStyle="dashed"
-        borderWidth={2}
-        zIndex={-1}
+        color="#808080"
+        width={2}
       />
     )
   }

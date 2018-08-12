@@ -18,24 +18,31 @@ export default class App extends Component {
     }
   }
 
+  onRemoveLink = (id) => () => {
+    const { removeLink } = this.props;
+
+    removeLink(id);
+  }
+
   checkSpace = (x, y) => {
     const { rectangles } = this.props;
 
-    return rectangles.every(({ position }) => Math.abs(x - position.x) >= 100 || Math.abs(y - position.y) >= 50); // add windowx x / y check
+    return rectangles.every(({ position }) => Math.abs(x - position.x) >= 100 || Math.abs(y - position.y) >= 50);
   }
 
   render() {
     const { rectangles, moveRectangle, links, linking } = this.props;
 
     return (
-      <div className="app">
+      <div className="app" style={{ transformStyle: 'preserve-3d' }}>
         {rectangles.map(rect => <Rectangle key={rect.id} rect={rect} onRectMove={moveRectangle} />)}
-        {links.map(({ a, b }) => (
+        {links.map(({ id, a, b }) => (
           <Link
-            key={`${a.pos}-${a.id}-${b.pos}-${b.id}`}
+            key={id}
             a={a}
             b={b}
             rectangles={rectangles}
+            onRemove={this.onRemoveLink(id)}
           />
         ))}
         {linking.state ? <LinkingLine start={linking.start} rects={rectangles} mouse={this.state.mouse} /> : null}

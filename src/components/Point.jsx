@@ -3,11 +3,11 @@ import { coords } from '../rectParams';
 
 export default class Point extends Component {
   onClick = () => {
-    const { linking: { start, state }, startLinking, addLink, position, rect: { id } } = this.props;
+    const { linking: { start, state }, startLinking, addLink, position, rect: { id }, nextId } = this.props;
     if (!state) {
       startLinking(position, id);
     } else {
-      addLink(start.pos, start.id, position, id);
+      addLink(start.pos, start.id, position, id, nextId);
     }
   }
 

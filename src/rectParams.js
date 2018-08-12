@@ -1,6 +1,6 @@
 export const params = {
-  width: 100,
-  height: 50,
+  width: 200,
+  height: 100,
 };
 
 export const deltas = {
@@ -24,19 +24,19 @@ export const deltas = {
 
 export const coords = {
   top: {
-    left: '45px',
+    left: `${params.width / 2 - 5}px`,
     top: '-5px',
   },
   right: {
-    left: '95px',
-    top: '20px',
+    left: `${params.width - 5}px`,
+    top: `${params.height / 2 - 5}px`,
   },
   left: {
     left: '-5px',
-    top: '20px',
+    top: `${params.height / 2 - 5}px`,
   },
   bottom: {
-    left: '45px',
-    top: '45px',
+    left: `${params.width / 2 - 5}px`,
+    top: `${params.height - 5}px`,
   },
 };

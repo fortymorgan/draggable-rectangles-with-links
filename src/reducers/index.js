@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import { handleActions } from 'redux-actions';
+import _ from 'lodash';
 import * as actions from '../actions';
 
 const rectangles = handleActions({
@@ -15,6 +16,9 @@ const nextId = handleActions({
   [actions.addRectangle](state) {
     return state + 1;
   },
+  [actions.addLink](state) {
+    return state + 1;
+  }
 }, 0);
 
 const linking = handleActions({
@@ -28,9 +32,12 @@ const linking = handleActions({
 
 const links = handleActions({
   [actions.addLink](state, { payload }) {
-    return [...state, payload];
+    return { ...state, [payload.id]: payload };
   },
-}, []);
+  [actions.removeLink](state, { payload }) {
+    return _.omit(state, payload);
+  }
+}, {});
 
 export default combineReducers({
   rectangles,
