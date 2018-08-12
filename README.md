@@ -1,6 +1,10 @@
 # Get IT test case
 A test case for Get IT business consulting
 
+## Case Description
+Develop an app which creates rectangles of different colors on the double-click on the screen. Rectangles are added to the place where the double-click was done.
+Rectangles can be dragged around the screen. Between rectangles an unlimited number of links can be created / deleted.
+
 ## Screenshots
 <img src="https://github.com/fortymorgan/getITtest/blob/master/screenshots/Blocks.png" alt="Result" title="Result" />
 
