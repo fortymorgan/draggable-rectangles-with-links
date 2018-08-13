@@ -35,7 +35,7 @@ export default class App extends Component {
 
     return (
       <div className="app" style={{ transformStyle: 'preserve-3d' }}>
-        {rectangles.map(rect => <Rectangle key={rect.id} rect={rect} onRectMove={moveRectangle} />)}
+        {rectangles.map(rect => <Rectangle key={rect.id} rect={rect} onRectMove={moveRectangle} rects={rectangles} />)}
         {links.map(({ id, a, b }) => (
           <Link
             key={id}
