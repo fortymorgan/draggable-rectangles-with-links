@@ -113,7 +113,7 @@ export default class Rectangle extends Component {
             <Point
               key={pos}
               position={pos}
-              hovered={hovered}
+              show={hovered && !dragging}
               rect={this.props.rect}
             />)
           )}

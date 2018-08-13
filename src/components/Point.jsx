@@ -12,7 +12,7 @@ export default class Point extends Component {
   }
 
   render() {
-    const { position, hovered, linking } = this.props;
+    const { position, show, linking } = this.props;
 
     const style = {
       position: 'absolute',
@@ -22,7 +22,7 @@ export default class Point extends Component {
       borderRadius: '50%',
       left: coords[position].left,
       top: coords[position].top,
-      display: linking.state || hovered ? 'block' : 'none',
+      display: linking.state || show ? 'block' : 'none',
       cursor: 'pointer',
       zIndex: 2,
     };
