@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "jest": {
+    "testPathIgnorePatterns": ["__assets__"]
+  },
   "scripts": {
+    "test": "jest",
     "watch": "webpack --watch",
     "build": "webpack",
     "deploy": "surge --domain get-it-test.surge.sh dist"
