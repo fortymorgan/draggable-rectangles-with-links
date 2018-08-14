@@ -2,17 +2,15 @@ import React, { Component } from 'react';
 import { coords } from '../rectParams';
 
 export default class Point extends Component {
-  onClick = () => {
-    const { linking: { start, state }, startLinking, addLink, position, rect: { id }, nextId } = this.props;
-    if (!state) {
-      startLinking(position, id);
-    } else {
-      addLink(start.pos, start.id, position, id, nextId);
-    }
+  onClick = ({ clientX, clientY }) => {
+    const { rectId, pointClicked, position } = this.props;
+    pointClicked(position, rectId, { x: clientX, y: clientY });
   }
 
   render() {
-    const { position, show, linking } = this.props;
+    const { position, show, links } = this.props;
+
+    const linking = links.find(link => link.linking);
 
     const style = {
       position: 'absolute',
@@ -22,13 +20,14 @@ export default class Point extends Component {
       borderRadius: '50%',
       left: coords[position].left,
       top: coords[position].top,
-      display: linking.state || show ? 'block' : 'none',
+      display: linking || show ? 'block' : 'none',
       cursor: 'pointer',
       zIndex: 2,
     };
 
     return (
       <div
+        onMouseDown={(e) => e.stopPropagation()}
         onClick={this.onClick}
         style={style}
       ></div>

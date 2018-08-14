@@ -1,21 +1,15 @@
 import React, { Component } from 'react';
 import Rectangle from './Rectangle';
 import Link from './Link';
-import LinkingLine from './LinkingLine';
 
 export default class App extends Component {
   onAddRectangle = ({ clientX, clientY }) => {
     const { addRectangle, nextId } = this.props;
 
-    const canAdd = this.checkSpace(clientX, clientY);
+    const colors = ['fuchsia', 'cyan', 'lime', 'yellow'];
+    const rand = Math.floor(Math.random() * 4);
 
-    if (canAdd) {
-      const colors = ['fuchsia', 'cyan', 'lime', 'yellow'];
-  
-      const rand = Math.floor(Math.random() * 4);
-  
-      addRectangle(clientX, clientY, colors[rand], nextId);
-    }
+    addRectangle(clientX, clientY, colors[rand], nextId);
   }
 
   onRemoveLink = (id) => () => {
@@ -24,18 +18,35 @@ export default class App extends Component {
     removeLink(id);
   }
 
-  checkSpace = (x, y) => {
-    const { rectangles } = this.props;
+  onStartDragging = (id) => () => {
+    const { startDragging } = this.props;
 
-    return rectangles.every(({ position }) => Math.abs(x - position.x) >= 200 || Math.abs(y - position.y) >= 100);
+    startDragging(id);
+  }
+
+  onStopDragging = (id) => () => {
+    const { stopDragging } = this.props;
+
+    stopDragging(id);
   }
 
   render() {
-    const { rectangles, moveRectangle, links, linking } = this.props;
+    const {
+      rectangles,
+      links,
+      linking
+    } = this.props;
 
     return (
       <div className="app" style={{ transformStyle: 'preserve-3d' }}>
-        {rectangles.map(rect => <Rectangle key={rect.id} rect={rect} onRectMove={moveRectangle} rects={rectangles} />)}
+        {rectangles.map(rect => (
+          <Rectangle
+            key={rect.id}
+            rect={rect}
+            onStart={this.onStartDragging(rect.id)}
+            onStop={this.onStopDragging(rect.id)}
+          />
+        ))}
         {links.map(({ id, a, b }) => (
           <Link
             key={id}
@@ -45,13 +56,14 @@ export default class App extends Component {
             onRemove={this.onRemoveLink(id)}
           />
         ))}
-        {linking.state ? <LinkingLine start={linking.start} rects={rectangles} mouse={this.state.mouse} /> : null}
       </div>
     )
   }
 
   componentDidMount() {
+    const { moveMouse } = this.props;
+
     document.addEventListener('dblclick', this.onAddRectangle);
-    document.addEventListener('mousemove', ({ clientX, clientY }) => this.setState({ mouse: { x: clientX, y: clientY } }));
+    document.addEventListener('mousemove', ({ clientX, clientY }) => moveMouse(clientX,clientY));
   }
 }

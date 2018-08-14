@@ -13,6 +13,7 @@ export default () => {
 
   const store = createStore(...args);
 
+
   ReactDOM.render(
     <Provider store={store}>
       <App />

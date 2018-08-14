@@ -7,10 +7,16 @@ export default class Link extends Component {
     const { a, b, rectangles, onRemove } = this.props;
 
     const rectFrom = rectangles.find(rect => rect.id === a.id);
-    const rectTo = rectangles.find(rect => rect.id === b.id);
-
+    
     const from = { x: rectFrom.position.x + deltas[a.pos].x, y: rectFrom.position.y + deltas[a.pos].y }
-    const to = { x: rectTo.position.x + deltas[b.pos].x, y: rectTo.position.y + deltas[b.pos].y }
+
+    let to;
+    if (b.id) {
+      const rectTo = rectangles.find(rect => rect.id === b.id);
+      to = { x: rectTo.position.x + deltas[b.pos].x, y: rectTo.position.y + deltas[b.pos].y }
+    } else {
+      to = b;
+    }
 
     return (
       <div onClick={onRemove}>
