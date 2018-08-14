@@ -31,6 +31,16 @@ If it's your first run, Surge will ask you for email and password and create an 
 Then the project will be deployed for the domain, which you used in the `package.json` `deploy` script.  
 (If the domain is already used, Surge will tell you about that).
 
+## Testing
+
+Tests are made with [Jest](https://github.com/facebook/jest)
+
+Run tests with:
+```
+npm test
+```
+State snapshots for tests in `__tests__/__assets__`.
+
 ## How to use
 
 ### Add block
