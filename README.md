@@ -1,11 +1,12 @@
-# Get IT test case
+[![Build Status](https://travis-ci.org/fortymorgan/getITtest.svg?branch=master)](https://travis-ci.org/fortymorgan/getITtest)
+# Тестовое задание Get IT
 Тестовое задание для Get IT бизнес консалтинг.
 
-[Ссылка на приложение](http://get-it-test.surge.sh)
+[In English](README.en.md)
 
-[In English](https://github.com/fortymorgan/getITtest/blob/master/README.en.md)
+## Ссылка на приложение
+https://get-it-test.surge.sh
 
-[![Build Status](https://travis-ci.org/fortymorgan/getITtest.svg?branch=master)](https://travis-ci.org/fortymorgan/getITtest)
 ## Описание задания
 Разработать программу, которая по двойному нажатию мыши на экране добавляет прямоугольники разного цвета.  
 Пряумоугольники добавляются в то место, где было произведено двойное нажатие.  
@@ -15,7 +16,7 @@
 При перетаскивании связанных прямоугольников связь сохраняется.
 
 ## Скриншоты
-<img src="https://github.com/fortymorgan/getITtest/blob/master/screenshots/Blocks.png" alt="Блоки и связи" title="Блоки и связи" />
+<img src="screenshots/Blocks.png" alt="Блоки и связи" title="Блоки и связи" />
 
 ## Разработка
 Сначала надо создать `bundle.js`, выполнив команду:

@@ -1,11 +1,12 @@
+[![Build Status](https://travis-ci.org/fortymorgan/getITtest.svg?branch=master)](https://travis-ci.org/fortymorgan/getITtest)
 # Get IT test case
 A test case for Get IT business consulting
 
-[Link to the app](http://get-it-test.surge.sh)
+[На русском](README.md)
 
-[На русском](https://github.com/fortymorgan/getITtest/blob/master/README.md)
+## Link to the app
+https://get-it-test.surge.sh
 
-[![Build Status](https://travis-ci.org/fortymorgan/getITtest.svg?branch=master)](https://travis-ci.org/fortymorgan/getITtest)
 ## Case Description
 Develop an app which creates rectangles of different colors on the double-click on the screen.  
 Rectangles are added to the place where the double-click was done.  
@@ -14,7 +15,7 @@ Between rectangles an unlimited number of links can be created / deleted.
 When dragging the linked rectangles, the links continue to persist.
 
 ## Screenshots
-<img src="https://github.com/fortymorgan/getITtest/blob/master/screenshots/Blocks.png" alt="Rects and links" title="Rects and links" />
+<img src="screenshots/Blocks.png" alt="Rects and links" title="Rects and links" />
 
 ## How to develop
 First you need to create `bundle.js` with:
