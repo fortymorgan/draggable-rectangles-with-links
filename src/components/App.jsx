@@ -24,12 +24,6 @@ export default class App extends Component {
     startDragging(id, clientX, clientY);
   }
 
-  onStopDragging = (id) => () => {
-    const { stopDragging } = this.props;
-
-    stopDragging(id);
-  }
-
   render() {
     const {
       rectangles,
@@ -56,7 +50,6 @@ export default class App extends Component {
             key={rect.id}
             rect={rect}
             onStart={this.onStartDragging(rect.id)}
-            onStop={this.onStopDragging(rect.id)}
           />
         ))}
         {links.map(({ id, a, b }) => (
@@ -73,10 +66,11 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    const { moveMouse, cancelLink } = this.props;
+    const { moveMouse, cancelLink, stopDragging } = this.props;
 
     document.addEventListener('dblclick', this.onAddRectangle);
     document.addEventListener('click', () => cancelLink());
+    document.addEventListener('mouseup', () => stopDragging())
     document.addEventListener('mousemove', ({ clientX, clientY }) => moveMouse(clientX,clientY));
   }
 }

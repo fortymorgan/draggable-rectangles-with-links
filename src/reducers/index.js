@@ -11,7 +11,6 @@ const rectangles = handleActions({
   },
   [actions.moveMouse](state, { payload: { position } }) {
     const draggingRect = _.find(state, rect => rect.dragging);
-    // console.log(draggingRect)
     if (draggingRect) {
       const { id, diff } = draggingRect;
       const otherRects = _.filter(state, rect => rect.id !== id);
@@ -23,14 +22,12 @@ const rectangles = handleActions({
     }
   },
   [actions.startDragging](state, { payload: { id, x, y } }) {
-    // console.log(state)
-    // console.log(id)
     const { position } = state[id];
     const diff = { x: x - position.x, y: y - position.y }
     return { ...state, [id]: { ...state[id], dragging: true, diff } };
   },
   [actions.stopDragging](state, { payload }) {
-    return { ...state, [payload]: { ...state[payload], dragging: false } };
+    return _.mapValues(state, rect => ({ ...rect, dragging: false }))
   },
 }, {});
 

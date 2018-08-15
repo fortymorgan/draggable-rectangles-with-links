@@ -24,7 +24,6 @@ export default class Rectangle extends Component {
         id,
       },
       onStart,
-      onStop,
     } = this.props;
     const { hovered } = this.state;
     const { width, height } = params;
@@ -42,7 +41,6 @@ export default class Rectangle extends Component {
     return (
       <div
         onMouseDown={onStart}
-        onMouseUp={onStop}
         style={style}
         onMouseOver={this.onOver}
         onMouseOut={this.onLeave}
