@@ -69,7 +69,11 @@ export default class App extends Component {
     const { moveMouse, cancelLink, stopDragging } = this.props;
 
     document.addEventListener('dblclick', this.onAddRectangle);
-    document.addEventListener('click', () => cancelLink());
+    document.body.addEventListener('click', (e) => {
+      if (e.target === document.body) {
+        cancelLink()
+      }
+    });
     document.addEventListener('mouseup', () => stopDragging())
     document.addEventListener('mousemove', ({ clientX, clientY }) => moveMouse(clientX,clientY));
   }
