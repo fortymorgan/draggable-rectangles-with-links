@@ -3,11 +3,17 @@ import { handleActions } from 'redux-actions';
 import _ from 'lodash';
 import * as actions from '../actions';
 import isOverlapping from '../isOverlapping';
+import triggerError from '../errorTrigger';
 
 const rectangles = handleActions({
   [actions.addRectangle](state, { payload: { position, color } }) {
     const id = _.uniqueId();
-    return isOverlapping(position, Object.values(state)) ? state : { ...state, [id]: { position, color, id, dragging: false } };
+    const isOver = isOverlapping(position, Object.values(state));
+    if (isOver) {
+      triggerError(); // didn't find a better place to trigger
+    }
+
+    return isOver ? state : { ...state, [id]: { position, color, id, dragging: false } };
   },
   [actions.moveMouse](state, { payload: { position } }) {
     const draggingRect = _.find(state, rect => rect.dragging);
