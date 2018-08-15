@@ -14,9 +14,19 @@ const rectangles = handleActions({
     if (draggingRect) {
       const { id, diff } = draggingRect;
       const otherRects = _.filter(state, rect => rect.id !== id);
-      const newPosition = { x: position.x - diff.x, y: position.y - diff.y };
-      const isOver = isOverlapping(newPosition, otherRects);
-      return { ...state, [id]: isOver ? state[id] : { ...state[id], position: newPosition } }
+
+      const newPositionX = { x: position.x - diff.x, y: state[id].position.y };
+      const newPositionY = { x: state[id].position.x, y: position.y - diff.y };
+
+      const isOverX = isOverlapping(newPositionX, otherRects);
+      const isOverY = isOverlapping(newPositionY, otherRects);
+
+      const newPosition = {
+        x: isOverX ? state[id].position.x : position.x - diff.x,
+        y: isOverY ? state[id].position.y : position.y - diff.y,
+      }
+
+      return { ...state, [id]: { ...state[id], position: newPosition } }
     } else {
       return state;
     }
