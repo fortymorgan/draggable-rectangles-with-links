@@ -4,7 +4,12 @@ node_js:
 
 script:
   - npm test
+
+before_deploy:
   - npm run build
 
-after_success:
-  - npm run deploy
+deploy:
+  provider: surge
+  project: dist
+  domain: get-it-test.surge.sh
+  skip_cleanup: true
