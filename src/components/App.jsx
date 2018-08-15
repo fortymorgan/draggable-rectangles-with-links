@@ -37,12 +37,14 @@ export default class App extends Component {
       fontSize: '72px',
       color: '#dcdcdc',
       fontFamily: 'Arial',
-      top: innerHeight / 2 - 41,
-      left: innerWidth / 2 - 400,
+      top: innerHeight / 2,
+      left: innerWidth / 2,
       userSelect: 'none',
+      transform: 'translate(-50%,-100%)',
+      whiteSpace: 'nowrap',
     }
 
-    const info = <div style={infoStyle}>Double-click to add block</div>
+    const info = <div style={infoStyle}>Double-click to add a block</div>
     return (
       <div className="app" style={{ transformStyle: 'preserve-3d' }}>
         {rectangles.length === 0 ? info : rectangles.map(rect => (
