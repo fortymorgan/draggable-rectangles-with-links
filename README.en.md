@@ -3,6 +3,7 @@ A test case for Get IT business consulting
 
 [На русском](https://github.com/fortymorgan/getITtest/blob/master/README.md)
 
+[![Build Status](https://travis-ci.org/fortymorgan/getITtest.svg?branch=master)](https://travis-ci.org/fortymorgan/getITtest)
 ## Case Description
 Develop an app which creates rectangles of different colors on the double-click on the screen.  
 Rectangles are added to the place where the double-click was done.  
