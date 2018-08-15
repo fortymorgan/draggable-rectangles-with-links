@@ -18,10 +18,10 @@ export default class App extends Component {
     removeLink(id);
   }
 
-  onStartDragging = (id) => () => {
+  onStartDragging = (id) => ({ clientX, clientY }) => {
     const { startDragging } = this.props;
 
-    startDragging(id);
+    startDragging(id, clientX, clientY);
   }
 
   onStopDragging = (id) => () => {

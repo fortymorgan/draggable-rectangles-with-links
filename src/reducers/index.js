@@ -11,17 +11,23 @@ const rectangles = handleActions({
   },
   [actions.moveMouse](state, { payload: { position } }) {
     const draggingRect = _.find(state, rect => rect.dragging);
+    // console.log(draggingRect)
     if (draggingRect) {
-      const { id } = draggingRect;
+      const { id, diff } = draggingRect;
       const otherRects = _.filter(state, rect => rect.id !== id);
-      const isOver = isOverlapping(position, otherRects);
-      return { ...state, [id]: isOver ? state[id] : { ...state[id], position } }
+      const newPosition = { x: position.x - diff.x, y: position.y - diff.y };
+      const isOver = isOverlapping(newPosition, otherRects);
+      return { ...state, [id]: isOver ? state[id] : { ...state[id], position: newPosition } }
     } else {
       return state;
     }
   },
-  [actions.startDragging](state, { payload }) {
-    return { ...state, [payload]: { ...state[payload], dragging: true } };
+  [actions.startDragging](state, { payload: { id, x, y } }) {
+    // console.log(state)
+    // console.log(id)
+    const { position } = state[id];
+    const diff = { x: x - position.x, y: y - position.y }
+    return { ...state, [id]: { ...state[id], dragging: true, diff } };
   },
   [actions.stopDragging](state, { payload }) {
     return { ...state, [payload]: { ...state[payload], dragging: false } };
