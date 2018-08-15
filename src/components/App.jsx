@@ -40,7 +40,7 @@ export default class App extends Component {
       top: innerHeight / 2,
       left: innerWidth / 2,
       userSelect: 'none',
-      transform: 'translate(-50%,-100%)',
+      transform: 'translate(-50%,-50%)',
       whiteSpace: 'nowrap',
     }
 
