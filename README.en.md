@@ -1,6 +1,8 @@
 # Get IT test case
 A test case for Get IT business consulting
 
+[Link to the app](http://get-it-test.surge.sh)
+
 [На русском](https://github.com/fortymorgan/getITtest/blob/master/README.md)
 
 [![Build Status](https://travis-ci.org/fortymorgan/getITtest.svg?branch=master)](https://travis-ci.org/fortymorgan/getITtest)

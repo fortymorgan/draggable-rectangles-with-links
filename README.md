@@ -1,6 +1,8 @@
 # Get IT test case
 Тестовое задание для Get IT бизнес консалтинг.
 
+[Ссылка на приложение](http://get-it-test.surge.sh)
+
 [In English](https://github.com/fortymorgan/getITtest/blob/master/README.en.md)
 
 [![Build Status](https://travis-ci.org/fortymorgan/getITtest.svg?branch=master)](https://travis-ci.org/fortymorgan/getITtest)
