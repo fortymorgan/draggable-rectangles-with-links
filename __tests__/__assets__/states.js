@@ -56,6 +56,10 @@ export const rectangles = {
         },
         color: 'lime',
         dragging: true,
+        diff: {
+          x: 50,
+          y: -25,
+        },
       },
     },
     links: {},
@@ -74,11 +78,15 @@ export const rectangles = {
       2: {
         id: '2',
         position: {
-          x: 300,
+          x: 400,
           y: 50
         },
         color: 'lime',
-        dragging: true,
+        dragging: false,
+        diff: {
+          x: 50,
+          y: -25,
+        },
       },
     },
     links: {},
@@ -98,10 +106,41 @@ export const rectangles = {
         id: '2',
         position: {
           x: 300,
+          y: 50
+        },
+        color: 'lime',
+        dragging: true,
+        diff: {
+          x: 50,
+          y: -25,
+        },
+      },
+    },
+    links: {},
+  },
+  6: {
+    rectangles: {
+      1: {
+        id: '1',
+        position: {
+          x: 100,
+          y: 50
+        },
+        color: 'fuchsia',
+        dragging: false,
+      },
+      2: {
+        id: '2',
+        position: {
+          x: 300,
           y: 100
         },
         color: 'lime',
         dragging: true,
+        diff: {
+          x: 50,
+          y: -25,
+        },
       },
     },
     links: {},

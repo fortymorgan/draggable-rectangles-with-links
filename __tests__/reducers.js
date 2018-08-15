@@ -24,28 +24,28 @@ describe('rectangles reducers', () => {
   });
 
   it('should start dragging', () => {
-    const action = actions.startDragging('2');
+    const action = actions.startDragging('2', 450, 25);
     expect(reducers(rectangles[2], action)).toEqual(rectangles[3]);
   });
 
   it('should stop dragging', () => {
-    const action = actions.stopDragging('2');
-    expect(reducers(rectangles[3], action)).toEqual(rectangles[2]);
-  });
-
-  it('should move rectangle on x', () => {
-    const action = actions.moveMouse(300, 50);
+    const action = actions.stopDragging();
     expect(reducers(rectangles[3], action)).toEqual(rectangles[4]);
   });
 
+  it('should move rectangle on x', () => {
+    const action = actions.moveMouse(350, 25);
+    expect(reducers(rectangles[3], action)).toEqual(rectangles[5]);
+  });
+
   it('shouldn\'t move rectangle', () => {
-    const action = actions.moveMouse(299, 50);
-    expect(reducers(rectangles[4], action)).toEqual(rectangles[4]);
+    const action = actions.moveMouse(349, 25);
+    expect(reducers(rectangles[5], action)).toEqual(rectangles[5]);
   });
 
   it('should move rectangle on y', () => {
-    const action = actions.moveMouse(300, 100);
-    expect(reducers(rectangles[4], action)).toEqual(rectangles[5]);
+    const action = actions.moveMouse(350, 75);
+    expect(reducers(rectangles[5], action)).toEqual(rectangles[6]);
   });
 });
 
