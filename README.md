@@ -3,6 +3,7 @@
 
 [In English](https://github.com/fortymorgan/getITtest/blob/master/README.en.md)
 
+[![Build Status](https://travis-ci.org/fortymorgan/getITtest.svg?branch=master)](https://travis-ci.org/fortymorgan/getITtest)
 ## Описание задания
 Разработать программу, которая по двойному нажатию мыши на экране добавляет прямоугольники разного цвета.  
 Пряумоугольники добавляются в то место, где было произведено двойное нажатие.  
