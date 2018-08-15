@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { coords } from '../rectParams';
 
 export default class Point extends Component {
-  onClick = ({ clientX, clientY }) => {
+  onClick = (e) => {
+    e.stopPropagation();
     const { rectId, pointClicked, position } = this.props;
-    pointClicked(position, rectId, { x: clientX, y: clientY });
+    pointClicked(position, rectId, { x: e.clientX, y: e.clientY });
   }
 
   render() {

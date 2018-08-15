@@ -39,6 +39,15 @@ const links = handleActions({
       return { ...state, [newId]: { id: newId, a: { pos, id }, linking: true, b: coords } };
     }
   },
+  [actions.cancelLink](state) {
+    const linking = _.find(state, link => link.linking);
+
+    if (linking) {
+      return _.omit(state, linking.id);
+    } else {
+      return state;
+    }
+  },
   [actions.moveMouse](state, { payload: { position } }) {
     const linking = _.find(state, link => link.linking);
 
