@@ -34,12 +34,24 @@ export default class App extends Component {
     const {
       rectangles,
       links,
-      linking
     } = this.props;
 
+    const { innerWidth, innerHeight } = window;
+
+    const infoStyle = {
+      position: 'absolute',
+      fontSize: '72px',
+      color: '#dcdcdc',
+      fontFamily: 'Arial',
+      top: innerHeight / 2 - 41,
+      left: innerWidth / 2 - 400,
+      userSelect: 'none',
+    }
+
+    const info = <div style={infoStyle}>Double-click to add block</div>
     return (
       <div className="app" style={{ transformStyle: 'preserve-3d' }}>
-        {rectangles.map(rect => (
+        {rectangles.length === 0 ? info : rectangles.map(rect => (
           <Rectangle
             key={rect.id}
             rect={rect}
