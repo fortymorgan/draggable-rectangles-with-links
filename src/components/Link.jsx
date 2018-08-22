@@ -4,7 +4,7 @@ import { deltas } from '../rectParams';
 
 export default class Link extends Component {
   render() {
-    const { a, b, rectangles, onRemove } = this.props;
+    const { a, b, rectangles, onRemove, linking } = this.props;
 
     const rectFrom = rectangles.find(rect => rect.id === a.id);
     
@@ -27,6 +27,7 @@ export default class Link extends Component {
           y1={to.y}
           color='#808080'
           width={2}
+          zIndex={linking ? '1' : '-1'}
         />
       </div>
     );

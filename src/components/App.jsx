@@ -54,11 +54,12 @@ export default class App extends Component {
             onStart={this.onStartDragging(rect.id)}
           />
         ))}
-        {links.map(({ id, a, b }) => (
+        {links.map(({ id, a, b, linking }) => (
           <Link
             key={id}
             a={a}
             b={b}
+            linking={linking}
             rectangles={rectangles}
             onRemove={this.onRemoveLink(id)}
           />
