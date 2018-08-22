@@ -8,7 +8,7 @@ import triggerError from '../errorTrigger';
 const rectangles = handleActions({
   [actions.addRectangle](state, { payload: { position, color } }) {
     const id = _.uniqueId();
-    const isOver = isOverlapping(position, Object.values(state));
+    const isOver = isOverlapping(position, _.values(state));
     if (isOver) {
       triggerError(); // didn't find a better place to trigger
     }
@@ -42,7 +42,7 @@ const rectangles = handleActions({
     const diff = { x: x - position.x, y: y - position.y }
     return { ...state, [id]: { ...state[id], dragging: true, diff } };
   },
-  [actions.stopDragging](state, { payload }) {
+  [actions.stopDragging](state) {
     return _.mapValues(state, rect => ({ ...rect, dragging: false }))
   },
 }, {});

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 export default class Line extends Component {
   render() {
-    const { x0, y0, x1, y1, color, width, zIndex } = this.props;
+    const { x0, y0, x1, y1, color, width, zIndex, onClick } = this.props;
 
     const dy = y1 - y0;
     const dx = x1 - x0;
@@ -23,7 +23,7 @@ export default class Line extends Component {
     };
 
     return (
-      <div style={style} />
+      <div style={style} onClick={onClick} />
     );
   }
 }

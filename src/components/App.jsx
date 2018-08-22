@@ -14,7 +14,6 @@ export default class App extends Component {
 
   onRemoveLink = (id) => () => {
     const { removeLink } = this.props;
-
     removeLink(id);
   }
 
@@ -40,13 +39,17 @@ export default class App extends Component {
       top: innerHeight / 2,
       left: innerWidth / 2,
       userSelect: 'none',
+      msUserSelect: 'none',
+      WebkitUserSelect: 'none',
+      MozUserSelect: 'none',
       transform: 'translate(-50%,-50%)',
       whiteSpace: 'nowrap',
+      cursor: 'default'
     }
 
     const info = <div style={infoStyle}>Double-click to add a block</div>
     return (
-      <div className="app" style={{ transformStyle: 'preserve-3d' }}>
+      <div className="app" style={{ perspective: '1px' }}>
         {rectangles.length === 0 ? info : rectangles.map(rect => (
           <Rectangle
             key={rect.id}

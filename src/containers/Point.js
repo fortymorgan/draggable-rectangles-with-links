@@ -1,9 +1,10 @@
 import { connect } from 'react-redux';
+import _ from 'lodash';
 import * as actionCreators from '../actions';
 import Point from '../components/Point';
 
 const mapStateToProps = ({ links }) => {
-  return { links: Object.values(links) };
+  return { links: _.values(links) };
 };
 
 export default connect(

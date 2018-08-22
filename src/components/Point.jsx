@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import _ from 'lodash';
 import { coords } from '../rectParams';
 
 export default class Point extends Component {
@@ -11,7 +12,7 @@ export default class Point extends Component {
   render() {
     const { position, show, links } = this.props;
 
-    const linking = links.find(link => link.linking);
+    const linking = _.find(links, link => link.linking);
 
     const style = {
       position: 'absolute',
@@ -23,6 +24,7 @@ export default class Point extends Component {
       top: coords[position].top,
       display: linking || show ? 'block' : 'none',
       cursor: 'pointer',
+      transform: 'rotate(90deg)',
       zIndex: 2,
     };
 
