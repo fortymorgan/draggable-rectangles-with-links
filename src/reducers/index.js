@@ -52,7 +52,8 @@ const links = handleActions({
     const linking = _.find(state, link => link.linking);
 
     if (linking) {
-      return { ...state, [linking.id]: { ...state[linking.id], b: { pos, id }, linking: false } }
+      return linking.a.id === id ? state :
+        { ...state, [linking.id]: { ...state[linking.id], b: { pos, id }, linking: false } }
     } else {
       const newId = _.uniqueId();
       return { ...state, [newId]: { id: newId, a: { pos, id }, linking: true, b: coords } };
