@@ -1,4 +1,3 @@
-[![Build Status](https://travis-ci.org/fortymorgan/getITtest.svg?branch=master)](https://travis-ci.org/fortymorgan/getITtest)
 # Тестовое задание Get IT
 Тестовое задание для Get IT бизнес консалтинг.
 

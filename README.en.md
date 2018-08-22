@@ -1,4 +1,3 @@
-[![Build Status](https://travis-ci.org/fortymorgan/getITtest.svg?branch=master)](https://travis-ci.org/fortymorgan/getITtest)
 # Get IT test case
 A test case for Get IT business consulting
 
