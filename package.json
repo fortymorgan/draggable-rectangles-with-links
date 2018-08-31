@@ -1,5 +1,5 @@
 {
-  "name": "getit-test",
+  "name": "draggable-rectangles-with-links",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,7 +10,7 @@
     "test": "jest",
     "watch": "webpack --watch",
     "build": "webpack",
-    "deploy": "surge --domain get-it-test.surge.sh dist"
+    "deploy": "surge --domain rectangles.surge.sh dist"
   },
   "keywords": [],
   "author": "",

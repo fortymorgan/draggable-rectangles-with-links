@@ -1,66 +1,66 @@
-# Тестовое задание Get IT
-Тестовое задание для Get IT бизнес консалтинг.
+[![Build Status](https://travis-ci.org/fortymorgan/draggable-rectangles-with-links.svg?branch=master)](https://travis-ci.org/fortymorgan/draggable-rectangles-with-links)
 
-[In English](README.en.md)
+# Draggable rectangles with links
 
-## Ссылка на приложение
-https://get-it-test.surge.sh
+[На русском](README.ru.md)
 
-## Описание задания
-Разработать программу, которая по двойному нажатию мыши на экране добавляет прямоугольники разного цвета.  
-Пряумоугольники добавляются в то место, где было произведено двойное нажатие.  
-Прямоугольники можно перетаскивать по экрану.  
-Между прямоугольниками можно создавать/удалять неограниченное количество связей.  
-Прямоугольники не могут перекрывать друг друга ни при перетаскивании, ни при создании.  
-При перетаскивании связанных прямоугольников связь сохраняется.
+## Link to the app
+https://rectangles.surge.sh
 
-## Скриншоты
-<img src="screenshots/Blocks.png" alt="Блоки и связи" title="Блоки и связи" />
+## Description
+Double-click on the screen to add a rectangle.  
+Rectangles are added to the place where the double-click was done.  
+Rectangles can be dragged around the screen.  
+Between rectangles an unlimited number of links can be created / deleted.  
+When dragging the linked rectangles, the links continue to persist.
 
-## Разработка
-Сначала надо создать `bundle.js`, выполнив команду:
+## Screenshots
+<img src="screenshots/Blocks.png" alt="Rects and links" title="Rects and links" />
+
+## How to develop
+First you need to create `bundle.js` with:
 ```
 npm run watch
 ```
-Для запуска приложения локально открыть `dist/index.html`.
+Then, to run the app locally, open `dist/index.html`.
 
-## Развертывание
-Сначала надо установить [Surge](http://surge.sh)
+## How to deploy
+First you need to install [Surge](http://surge.sh)
 ```
 npm install -g surge
 ```
-Измените префикс домена в скрипте `deploy` файла `package.json`, затем выполните команду:
+Change the domain prefix for the `deploy` script in `package.json`, then run:
 ```
 npm run deploy
 ```
-Если это ваш первый запуск, Surge запросит email и пароль, а также создаст аккаунт.  
-Затем проект будет развернут на домене, указанном в скрипте `deploy` файла `package.json`.  
-(Если домен уже занят, Surge сообщит об ошибке).
+If it's your first run, Surge will ask you for email and password and create an account for you.  
+Then the project will be deployed for the domain, which you used in the `package.json` `deploy` script.  
+(If the domain is already used, Surge will tell you about that).
 
-## Тестирование
+## Testing
 
-Тесты написаны с использованием [Jest](https://github.com/facebook/jest)
+Tests are made with [Jest](https://github.com/facebook/jest)
 
-Запуск тестов осуществляется командой:
+Run tests with:
 ```
 npm test
 ```
-Сохраненные состояния приложения находятся в `__tests__/__assets__`.
+State snapshots for tests in `__tests__/__assets__`.
 
-## Использование
+## How to use
 
-### Добавление блока
-Дважды кликните по свободному месту, чтобы добавить блок. Если места недостаточно, блок не будет добавлен.
+### Add block
+Click twice on free space to add the block. If there is not enough space, the block won't be added.
 
-### Перемещение блока
-Удерживайте левую кнопку мыши на блоке и переместите его в другое место.
+### Move block
+Hold the left mouse button on the block and drag it to another place.
 
-### Добавление связи
-Кликните мышью по точке на одной из сторон блока, затем кликните по точке другого блока.
+### Add link
+Click on the point at one of the block sides, then click to the point of another block.
 
-### Удаление связи
-Кликните по связи, чтобы удалить ее.
+### Remove link
+Click on the link line and it will be removed.
 
-## Создано с использованием
-- [React](https://github.com/facebook/react) - веб-фреймворк
-- [Redux](https://github.com/reduxjs/redux) - менеджер состояния приложения
+## Built with
+- [React](https://github.com/facebook/react) - web framework
+- [Redux](https://github.com/reduxjs/redux) - app state container

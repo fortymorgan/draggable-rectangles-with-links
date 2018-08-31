@@ -11,5 +11,5 @@ before_deploy:
 deploy:
   provider: surge
   project: dist
-  domain: get-it-test.surge.sh
+  domain: rectangles.surge.sh
   skip_cleanup: true
